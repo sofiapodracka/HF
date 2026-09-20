@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Hokejová fyzika – objavuj silu, trenie, rýchlosť a pohyb priamo na ľade.">
-  <title>Hokejová fyzika | Od mantinelu na ľad</title>
+  <meta name="description" content="Z lavičky na ľad s fyzikou v hlave – objavuj silu, trenie, rýchlosť a pohyb priamo na ľade.">
+  <title>Z lavičky na ľad s fyzikou v hlave</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=Kalam:wght@300;400;700&display=swap');
 
@@ -93,7 +93,7 @@
     <section class="calculator" id="skus"><div class="container"><span class="eyebrow">Tvoja úloha</span><h2>VYSKÚŠAJ SI TO</h2><p>Vypočítaj rýchlosť hokejistu. Zadaj vzdialenosť a čas — výsledok dostaneš v metroch za sekundu.</p><div class="calculator-box"><div class="fields"><label>Vzdialenosť (m)<input id="distance" type="number" min="0" placeholder="napr. 100"></label><label>Čas (s)<input id="time" type="number" min="0" placeholder="napr. 20"></label><button class="button" id="calculate" type="button">Vypočítať →</button></div><div class="result" id="result" aria-live="polite">Čakám na tvoje čísla.</div></div></div></section>
     <section class="audiences" id="pre-koho"><div class="container"><span class="eyebrow">Pre každého</span><h2>UČÍME SA SPOLU</h2><div class="audience-grid"><article class="audience"><h3>Žiaci</h3><ul><li>Fyzika na reálnych príkladoch</li><li>Menej učenia naspamäť</li><li>Viac pochopenia hry aj látky</li></ul></article><article class="audience"><h3>Učitelia</h3><ul><li>Pútavý začiatok hodiny</li><li>Otázky z každodenného sveta</li><li>Priestor na diskusiu a pokusy</li></ul></article><article class="audience"><h3>Rodičia</h3><ul><li>Podpora pri domácom učení</li><li>Spoločné objavovanie</li><li>Užitočné vedomosti cez šport</li></ul></article></div></div></section>
   </main>
-  <footer><div class="container"><a class="brand" href="#domov">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><p>Hokejová fyzika · školský projekt 2026</p></div></footer>
+  <footer><div class="container"><a class="brand" href="#domov">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><p>Z lavičky na ľad s fyzikou v hlave · školský projekt 2026</p></div></footer>
   <script>
     const distance = document.querySelector('#distance'); const time = document.querySelector('#time'); const result = document.querySelector('#result');
     document.querySelector('#calculate').addEventListener('click', () => { const s = Number(distance.value), t = Number(time.value); if (!distance.value || !time.value) { result.textContent = 'Zadaj vzdialenosť aj čas.'; return; } if (s < 0 || t <= 0) { result.textContent = 'Vzdialenosť musí byť kladná a čas väčší ako nula.'; return; } const speed = s / t; result.textContent = `Rýchlosť hráča je ${speed.toLocaleString('sk-SK', { maximumFractionDigits: 2 })} m/s.`; });
