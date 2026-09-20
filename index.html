@@ -17,7 +17,7 @@
     .topline { height:7px; background:linear-gradient(90deg,var(--wine),var(--red),#d5a847,var(--wine)); }
     header { position:sticky; top:0; z-index:10; background:rgba(255,253,250,.92); backdrop-filter:blur(10px); border-bottom:1px solid var(--line); }
     nav { min-height:72px; display:flex; align-items:center; justify-content:space-between; gap:24px; }
-    .brand { color:var(--wine); font-family:'Bebas Neue',sans-serif; letter-spacing:.8px; font-size:1.35rem; line-height:.95; max-width:130px; text-decoration:none; }
+    .brand { color:var(--wine); font-family:'Bebas Neue',sans-serif; letter-spacing:.8px; font-size:1.2rem; line-height:.95; max-width:180px; text-decoration:none; }
     .links { display:flex; align-items:center; gap:20px; flex-wrap:wrap; justify-content:flex-end; }
     .links a { color:var(--ink); text-decoration:none; font-size:.78rem; font-weight:700; transition:.2s; }
     .links a:hover { color:var(--wine); }
@@ -37,6 +37,7 @@
     .rink { position:absolute; width:78%; aspect-ratio:1.85; border:8px solid rgba(125,20,32,.78); border-radius:70px; background:linear-gradient(90deg,transparent 48%,rgba(125,20,32,.5) 49%,rgba(125,20,32,.5) 51%,transparent 52%); transform:rotate(-17deg); opacity:.7; }
     .puck { position:absolute; bottom:90px; left:40px; width:92px; height:31px; background:#24282b; border-radius:50%; box-shadow:0 10px 0 #151719,18px 14px 18px rgba(0,0,0,.35); transform:rotate(-15deg); }
     .player { position:relative; font-size:13rem; line-height:1; z-index:2; filter:drop-shadow(12px 16px 8px rgba(0,0,0,.22)); transform:rotate(-8deg); }
+    .book-cover { position:relative; z-index:3; display:block; width:min(76%,350px); max-height:440px; object-fit:contain; filter:drop-shadow(12px 17px 10px rgba(0,0,0,.25)); transform:rotate(2deg); }
     .tape { position:absolute; top:37px; right:-20px; background:#eee5d9; width:155px; height:40px; transform:rotate(31deg); opacity:.9; }
     section { padding:100px 0; }
     .intro { display:grid; grid-template-columns:.85fr 1.15fr; gap:70px; align-items:start; }
@@ -80,11 +81,11 @@
 </head>
 <body>
   <div class="topline"></div>
-  <header><nav class="container"><a class="brand" href="#domov">OD MANTINELU<br>NA ĽAD</a><div class="links"><a href="#o-projekte">O projekte</a><a href="#preco">Prečo hokej?</a><a href="#fyzika">Fyzika</a><a href="#skus">Vyskúšaj si</a><a href="#pre-koho">Pre koho?</a></div></nav></header>
+  <header><nav class="container"><a class="brand" href="#domov">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><div class="links"><a href="#o-projekte">O projekte</a><a href="#preco">Prečo hokej?</a><a href="#fyzika">Fyzika</a><a href="#skus">Vyskúšaj si</a><a href="#pre-koho">Pre koho?</a></div></nav></header>
   <main>
     <section class="hero container" id="domov">
-      <div><span class="eyebrow">Hokejová fyzika</span><h1>OD MANTINELU<br>NA ĽAD</h1><p>Objavuj fyziku cez situácie, ktoré poznáš z hokeja. Rýchlosť, sila aj pohyb zrazu dávajú zmysel.</p><a class="button" href="#fyzika">Objaviť fyziku <span>→</span></a><p class="hand">„Fyzika je všade. Aj na ľade.“</p></div>
-      <div class="hero-art" aria-label="Ilustrácia hokejistu na ľade"><div class="tape"></div><div class="rink"></div><div class="player">🏒</div><div class="puck"></div></div>
+      <div><h1>OD MANTINELU<br>NA ĽAD</h1><p>Objavuj fyziku cez situácie, ktoré poznáš z hokeja. Rýchlosť, sila aj pohyb zrazu dávajú zmysel.</p><a class="button" href="#fyzika">Objaviť fyziku <span>→</span></a><p class="hand">„Fyzika je všade. Aj na ľade.“</p></div>
+      <div class="hero-art"><img class="book-cover" src="obal-knihy.png" alt="Obálka knihy Z lavičky na ľad s fyzikou v hlave"></div>
     </section>
     <section id="o-projekte"><div class="container intro"><div><span class="eyebrow">O projekte</span><h2>FYZIKA, KTORÁ SA HÝBE</h2></div><div><p>Hokej je plný pohybu, síl a energie. Preto je ideálny na pochopenie fyziky v reálnom svete — od prvého vhadzovania až po gól.</p><p>Namiesto samotného memorovania vzorcov sa pozrieme na to, <strong>čo sa deje, prečo sa to deje a ako to vieme vypočítať.</strong></p><div class="note">Keď rozumieš hre, rozumieš aj fyzike.</div></div></div></section>
     <section class="physics" id="fyzika"><div class="container"><div class="section-head"><div><span class="eyebrow">Na ľade</span><h2>FYZIKA V HOKEJI</h2></div><p>Štyri dôležité pojmy, ktoré môžeš sledovať počas každého zápasu.</p></div><div class="cards"><article class="card"><span class="icon">🥅</span><h3>Sila</h3><p>Sila uvedie puk do pohybu. Čím silnejšia strela, tým väčšie zrýchlenie.</p></article><article class="card"><span class="icon">⛸️</span><h3>Trenie</h3><p>Malé trenie medzi korčuľou a ľadom umožňuje hráčom rýchlo kĺzať.</p></article><article class="card"><span class="icon">⏱️</span><h3>Rýchlosť</h3><p>Rýchlosť hovorí, akú vzdialenosť hráč alebo puk prejde za určitý čas.</p></article><article class="card"><span class="icon">🧤</span><h3>Pohyb</h3><p>Zmena smeru, brzdenie aj prihrávka sú príklady zmeny pohybu.</p></article></div></div></section>
@@ -92,7 +93,7 @@
     <section class="calculator" id="skus"><div class="container"><span class="eyebrow">Tvoja úloha</span><h2>VYSKÚŠAJ SI TO</h2><p>Vypočítaj rýchlosť hokejistu. Zadaj vzdialenosť a čas — výsledok dostaneš v metroch za sekundu.</p><div class="calculator-box"><div class="fields"><label>Vzdialenosť (m)<input id="distance" type="number" min="0" placeholder="napr. 100"></label><label>Čas (s)<input id="time" type="number" min="0" placeholder="napr. 20"></label><button class="button" id="calculate" type="button">Vypočítať →</button></div><div class="result" id="result" aria-live="polite">Čakám na tvoje čísla.</div></div></div></section>
     <section class="audiences" id="pre-koho"><div class="container"><span class="eyebrow">Pre každého</span><h2>UČÍME SA SPOLU</h2><div class="audience-grid"><article class="audience"><h3>Žiaci</h3><ul><li>Fyzika na reálnych príkladoch</li><li>Menej učenia naspamäť</li><li>Viac pochopenia hry aj látky</li></ul></article><article class="audience"><h3>Učitelia</h3><ul><li>Pútavý začiatok hodiny</li><li>Otázky z každodenného sveta</li><li>Priestor na diskusiu a pokusy</li></ul></article><article class="audience"><h3>Rodičia</h3><ul><li>Podpora pri domácom učení</li><li>Spoločné objavovanie</li><li>Užitočné vedomosti cez šport</li></ul></article></div></div></section>
   </main>
-  <footer><div class="container"><a class="brand" href="#domov">OD MANTINELU<br>NA ĽAD</a><p>Hokejová fyzika · školský projekt 2026</p></div></footer>
+  <footer><div class="container"><a class="brand" href="#domov">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><p>Hokejová fyzika · školský projekt 2026</p></div></footer>
   <script>
     const distance = document.querySelector('#distance'); const time = document.querySelector('#time'); const result = document.querySelector('#result');
     document.querySelector('#calculate').addEventListener('click', () => { const s = Number(distance.value), t = Number(time.value); if (!distance.value || !time.value) { result.textContent = 'Zadaj vzdialenosť aj čas.'; return; } if (s < 0 || t <= 0) { result.textContent = 'Vzdialenosť musí byť kladná a čas väčší ako nula.'; return; } const speed = s / t; result.textContent = `Rýchlosť hráča je ${speed.toLocaleString('sk-SK', { maximumFractionDigits: 2 })} m/s.`; });
