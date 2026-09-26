@@ -24,6 +24,8 @@ h3{font-size:1.65rem;color:var(--wine)}
 .hero-art{min-height:500px;display:grid;place-items:center;background:transparent;border:0;box-shadow:none}
 .hero-photo{display:block;width:auto;max-width:100%;height:min(580px,70vh);object-fit:contain;filter:grayscale(1)}
 .book-cover{display:block;width:min(76%,350px);max-height:440px;object-fit:contain;filter:drop-shadow(12px 17px 10px rgba(0,0,0,.25));transform:rotate(2deg)}
+.project-book{text-align:center}
+.project-book .book-cover{margin:48px auto 0;transform:none}
 section{padding:100px 0}
 .page-hero{padding:85px 0 45px;background:linear-gradient(135deg,#fffdfa,#f2e5dd)}
 .intro,.steps{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
