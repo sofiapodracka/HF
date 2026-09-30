@@ -1,1 +1,55 @@
-<!doctype html><html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vyskúšaj si | Z lavičky na ľad</title><link rel="stylesheet" href="styles.css"></head><body><div class="topline"></div><header><nav class="container"><a class="brand" href="index.html">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><div class="links"><a href="index.html">Domov</a><a href="o-projekte.html">O knihe</a><a class="active" href="vyskusaj-si.html">Vyskúšaj si</a><a href="pre-koho.html">Pre koho?</a><a href="o-autorovi.html">O autorovi</a></div></nav></header><main><section class="page-hero"><div class="container"><span class="eyebrow">Tvoja úloha</span><h1>VYSKÚŠAJ SI TO</h1><p>Vypočítaj rýchlosť hokejistu. Zadaj vzdialenosť a čas — výsledok dostaneš v metroch za sekundu.</p></div></section><section class="calculator"><div class="container"><div class="calculator-box"><div class="fields"><label>Vzdialenosť (m)<input id="distance" type="number" min="0" placeholder="napr. 100"></label><label>Čas (s)<input id="time" type="number" min="0" placeholder="napr. 20"></label><button class="button" id="calculate" type="button">Vypočítať →</button></div><div class="result" id="result" aria-live="polite">Čakám na tvoje čísla.</div></div></div></section><div class="container next-page"><a class="button" href="pre-koho.html">Pre koho? →</a><a href="o-projekte.html">← O knihe</a></div></main><footer><div class="container"><a class="brand" href="index.html">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><p>Z lavičky na ľad s fyzikou v hlave · školský projekt 2026</p></div></footer><script>const distance=document.querySelector('#distance'),time=document.querySelector('#time'),result=document.querySelector('#result');document.querySelector('#calculate').addEventListener('click',()=>{const s=Number(distance.value),t=Number(time.value);if(!distance.value||!time.value){result.textContent='Zadaj vzdialenosť aj čas.';return}if(s<0||t<=0){result.textContent='Vzdialenosť musí byť kladná a čas väčší ako nula.';return}result.textContent=`Rýchlosť hráča je ${(s/t).toLocaleString('sk-SK',{maximumFractionDigits:2})} m/s.`})</script></body></html>
+<!doctype html><html lang="sk"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Vyskúšaj si | Z lavičky na ľad</title><link rel="stylesheet" href="styles.css"><style>
+.exercise-picker{width:100%;padding:13px;margin:8px 0 30px;font:inherit;background:#fff;border:1px solid #cbaaa3;color:var(--ink)}
+.exercise-title{font-size:2rem;line-height:1.1}
+.answer-row{display:flex;gap:18px;align-items:end;flex-wrap:wrap;margin-top:28px}
+.answer-row label{flex:1;min-width:160px}
+.solution{margin-top:24px;padding:22px;background:var(--paper);border-left:4px solid var(--wine)}
+.solution h3{font-size:1.5rem}.solution li{margin:10px 0}.solution ol{padding-left:22px}
+</style></head><body><div class="topline"></div><header><nav class="container"><a class="brand" href="index.html">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><div class="links"><a href="index.html">Domov</a><a href="o-projekte.html">O knihe</a><a class="active" href="vyskusaj-si.html">Vyskúšaj si</a><a href="pre-koho.html">Pre koho?</a><a href="o-autorovi.html">O autorovi</a></div></nav></header><main><section class="page-hero"><div class="container"><span class="eyebrow">Tvoja úloha</span><h1>VYSKÚŠAJ SI TO</h1></div></section><section class="calculator"><div class="container"><div class="calculator-box">
+<label for="exercise">Vyber si úlohu</label>
+<select class="exercise-picker" id="exercise"><option value="speed">Úloha 1: Meranie rýchlosti puku</option><option value="bounce">Úloha 2: Odraz od mantinelu</option></select>
+<h2 class="exercise-title" id="exercise-title">Meranie rýchlosti puku</h2>
+<p id="question">Puk prešiel 6 metrov za 2 sekundy. Akou rýchlosťou sa pohyboval?</p>
+<form id="answer-form" novalidate><div class="answer-row"><label for="answer" id="answer-label">Tvoja odpoveď (m/s)<input id="answer" type="text" inputmode="decimal" autocomplete="off" aria-describedby="feedback"></label><button class="button" type="submit">Skontrolovať →</button></div></form>
+<p id="feedback" role="status" aria-live="polite"></p>
+<div id="solution" class="solution" hidden></div>
+</div></div></section><div class="container next-page"><a class="button" href="pre-koho.html">Pre koho? →</a><a href="o-projekte.html">← O knihe</a></div></main><footer><div class="container"><a class="brand" href="index.html">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><p>Z lavičky na ľad s fyzikou v hlave · školský projekt 2026</p></div></footer><script>
+const exercises = {
+  speed: {
+    title: 'Meranie rýchlosti puku',
+    question: 'Puk prešiel 6 metrov za 2 sekundy. Akou rýchlosťou sa pohyboval?',
+    unit: 'm/s', answer: 3,
+    solution: '<h3>Postup riešenia</h3><ol><li>Poznáme dráhu s = 6 m a čas t = 2 s. Hľadáme rýchlosť v.</li><li>Použijeme vzorec v = s / t.</li><li>Dosadíme: v = 6 m / 2 s = 3 m/s.</li></ol><p><strong>Rýchlosť puku bola 3 m/s.</strong></p>'
+  },
+  bounce: {
+    title: 'Odraz od mantinelu',
+    question: 'Puk sa pohyboval smerom k mantinelu pod uhlom 45° a odrazil sa. Aký bude uhol odrazu? Uhly meriame od kolmice na mantinel. Uvažuj ideálny odraz bez trenia a rotácie puku.',
+    unit: '°', answer: 45,
+    solution: '<h3>Postup riešenia</h3><ol><li>Uhol dopadu je 45° od kolmice na mantinel.</li><li>Pri ideálnom odraze sa uhol odrazu rovná uhlu dopadu.</li><li>Uhol odrazu je preto tiež 45°.</li></ol><p><strong>Puk pôjde od mantinelu pod uhlom 45° na druhej strane kolmice.</strong></p><p>Je to podobné ako odraz loptičky od steny. V skutočnej hre môžu odraz ovplyvniť trenie, rotácia puku a vlastnosti mantinelu.</p>'
+  }
+};
+const picker = document.querySelector('#exercise');
+const answer = document.querySelector('#answer');
+const feedback = document.querySelector('#feedback');
+const solution = document.querySelector('#solution');
+picker.addEventListener('change', () => {
+  const item = exercises[picker.value];
+  document.querySelector('#exercise-title').textContent = item.title;
+  document.querySelector('#question').textContent = item.question;
+  document.querySelector('#answer-label').firstChild.textContent = 'Tvoja odpoveď (' + item.unit + ')';
+  answer.value = ''; answer.removeAttribute('aria-invalid');
+  feedback.textContent = ''; solution.hidden = true; solution.innerHTML = '';
+});
+document.querySelector('#answer-form').addEventListener('submit', event => {
+  event.preventDefault();
+  const raw = answer.value.trim().replace(',', '.');
+  if (!/^\d+(?:\.\d+)?$/.test(raw) || !Number.isFinite(Number(raw))) {
+    feedback.textContent = 'Zadaj nezáporné číslo bez jednotky, napríklad 3 alebo 3,5.';
+    answer.setAttribute('aria-invalid', 'true'); solution.hidden = true; return;
+  }
+  answer.removeAttribute('aria-invalid');
+  const item = exercises[picker.value];
+  feedback.textContent = Number(raw) === item.answer ? 'Správne! Pozri si aj postup riešenia.' : 'Zatiaľ to nie je správne. Pozri si postup a správnu odpoveď nižšie.';
+  solution.innerHTML = item.solution; solution.hidden = false;
+});
+</script></body></html>
