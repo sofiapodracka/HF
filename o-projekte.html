@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>O knihe | Z lavičky na ľad</title>
   <link rel="stylesheet" href="styles.css?v=project-cover">
+  <style>
+    .page-hero{padding:26px 0 22px}
+    .page-hero .eyebrow{margin-bottom:10px}
+    .page-hero h1{font-size:clamp(2.8rem,4.3vw,4rem)}
+    .page-hero p{max-width:780px;margin:14px 0 0;font-size:1rem}
+    .book-content{padding:28px 0 36px}
+    .project-intro{grid-template-columns:.7fr 1.3fr;gap:48px}
+    .project-book h2{font-size:clamp(2rem,3vw,2.8rem)}
+    .project-book .book-cover{width:auto;max-width:100%;height:clamp(260px,40vh,360px);max-height:none;margin:24px auto 0}
+    .project-intro p{font-size:1rem;line-height:1.55;margin:0 0 16px}
+    .project-intro p:last-child{margin-bottom:0}
+    @media(max-width:800px){
+      .project-intro{grid-template-columns:1fr;gap:28px}
+      .page-hero{padding:24px 0}
+      .project-book .book-cover{height:320px}
+    }
+  </style>
 </head>
 <body>
   <div class="topline"></div>
@@ -24,7 +41,7 @@
         <p>Fyzika nemusí byť iba v zošite. V hokeji ju vidíš pri každej prihrávke, strele a zmene smeru.</p>
       </div>
     </section>
-    <section>
+    <section class="book-content">
       <div class="container intro project-intro">
         <div class="project-book">
           <h2>UČENIE Z HRY</h2>
