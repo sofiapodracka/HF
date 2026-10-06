@@ -6,17 +6,19 @@
   <title>O knihe | Z lavičky na ľad</title>
   <link rel="stylesheet" href="styles.css?v=project-cover">
   <style>
-    .page-hero{padding:26px 0 22px}
-    .page-hero h1{font-size:clamp(2.8rem,4.3vw,4rem)}
+    body{min-height:100svh;display:grid;grid-template-rows:auto auto 1fr auto}
+    main{min-height:calc(100svh - 79px)}
+    .page-hero{padding:38px 0 30px}
+    .page-hero h1{font-size:clamp(3.5rem,5.8vw,5.2rem)}
     .page-hero + .book-content{padding:28px 0 36px}
     .book-content{padding:28px 0 36px}
     .project-intro{grid-template-columns:.7fr 1.3fr;gap:48px}
     .project-book h2{font-size:clamp(2rem,3vw,2.8rem)}
-    .project-book .book-cover{width:auto;max-width:100%;height:clamp(260px,40vh,360px);max-height:none;margin:24px auto 0}
+    .project-book .book-cover{width:auto;max-width:100%;height:clamp(240px,calc(100svh - 370px),440px);max-height:none;margin:24px auto 0}
     .project-intro p{font-size:1rem;line-height:1.55;margin:0 0 16px}
     .project-intro p:last-child{margin-bottom:0}
     @media(max-width:800px){
-      .page-hero{padding:24px 0}
+      .page-hero{padding:30px 0 26px}
       .project-intro{grid-template-columns:1fr;gap:28px}
       .project-book .book-cover{height:320px}
     }
