@@ -5,6 +5,10 @@
 .answer-row label{flex:1;min-width:160px}
 .solution{margin-top:24px;padding:22px;background:var(--paper);border-left:4px solid var(--wine)}
 .solution h3{font-size:1.5rem}.solution li{margin:10px 0}.solution ol{padding-left:22px}
+#feedback:not(:empty){display:flex;align-items:flex-start;gap:12px;margin:24px 0 0;padding:18px 20px;font-size:clamp(1.15rem,2vw,1.35rem);font-weight:700;line-height:1.45;border-left:4px solid currentColor}
+#feedback[data-state="correct"]{color:#24543b;background:#eaf3ec}
+#feedback[data-state="incorrect"],#feedback[data-state="invalid"]{color:var(--wine);background:#f6e7e5}
+.feedback-icon{font-size:1.65em;line-height:1;flex-shrink:0}
 </style></head><body><div class="topline"></div><header><nav class="container"><a class="brand" href="index.html">Z LAVIČKY NA ĽAD<br>S FYZIKOU V HLAVE</a><div class="links"><a href="index.html">Domov</a><a href="o-projekte.html">O knihe</a><a class="active" href="vyskusaj-si.html">Vyskúšaj si</a><a href="pre-koho.html">Pre koho?</a><a href="o-autorovi.html">O autorovi</a></div></nav></header><main><section class="page-hero"><div class="container"><span class="eyebrow">Tvoja úloha</span><h1>VYSKÚŠAJ SI TO</h1></div></section><section class="calculator"><div class="container"><div class="calculator-box">
 <label for="exercise">Vyber si úlohu</label>
 <select class="exercise-picker" id="exercise"><option value="speed">Úloha 1: Meranie rýchlosti puku</option><option value="bounce">Úloha 2: Odraz od mantinelu</option></select>
@@ -32,24 +36,35 @@ const picker = document.querySelector('#exercise');
 const answer = document.querySelector('#answer');
 const feedback = document.querySelector('#feedback');
 const solution = document.querySelector('#solution');
+function showFeedback(state, message) {
+  feedback.dataset.state = state;
+  const icon = document.createElement('span');
+  icon.className = 'feedback-icon';
+  icon.setAttribute('aria-hidden', 'true');
+  icon.textContent = state === 'correct' ? '✓' : state === 'incorrect' ? '✕' : '!';
+  const text = document.createElement('span');
+  text.textContent = message;
+  feedback.replaceChildren(icon, text);
+}
 picker.addEventListener('change', () => {
   const item = exercises[picker.value];
   document.querySelector('#exercise-title').textContent = item.title;
   document.querySelector('#question').textContent = item.question;
   document.querySelector('#answer-label').firstChild.textContent = 'Tvoja odpoveď (' + item.unit + ')';
   answer.value = ''; answer.removeAttribute('aria-invalid');
-  feedback.textContent = ''; solution.hidden = true; solution.innerHTML = '';
+  feedback.textContent = ''; delete feedback.dataset.state; solution.hidden = true; solution.innerHTML = '';
 });
 document.querySelector('#answer-form').addEventListener('submit', event => {
   event.preventDefault();
   const raw = answer.value.trim().replace(',', '.');
   if (!/^\d+(?:\.\d+)?$/.test(raw) || !Number.isFinite(Number(raw))) {
-    feedback.textContent = 'Zadaj nezáporné číslo bez jednotky, napríklad 3 alebo 3,5.';
+    showFeedback('invalid', 'Zadaj nezáporné číslo bez jednotky, napríklad 3 alebo 3,5.');
     answer.setAttribute('aria-invalid', 'true'); solution.hidden = true; return;
   }
   answer.removeAttribute('aria-invalid');
   const item = exercises[picker.value];
-  feedback.textContent = Number(raw) === item.answer ? 'Správne! Pozri si aj postup riešenia.' : 'Zatiaľ to nie je správne. Pozri si postup a správnu odpoveď nižšie.';
+  const correct = Number(raw) === item.answer;
+  showFeedback(correct ? 'correct' : 'incorrect', correct ? 'Správne! Pozri si aj postup riešenia.' : 'Zatiaľ to nie je správne. Pozri si postup a správnu odpoveď nižšie.');
   solution.innerHTML = item.solution; solution.hidden = false;
 });
 </script></body></html>
